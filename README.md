@@ -21,7 +21,7 @@ npm run dev # start dev server
 Libraries like `single-spa` or `webpack 5 federation` are commonly used for creating
 micro frontends because they both address the issue of increased bundle size. The downside of using tools like these is that
 it ties you to approach frontend development in a specific way. It does not allow teams to experiment and optimise with
-their tooling in the future. With this boilerplate, I aim to strip down the concept of microfronts to its core concepts
+their tooling in the future. With this boilerplate, I aim to strip down the concept of microfrontends to its core concepts
 and provides a pattern that allows teams to innovate and experiment in the future.
 
 ## Concept
