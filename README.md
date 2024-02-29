@@ -39,7 +39,7 @@ In this repo, I divided the micro frontend concept into four lifecycle stages.
 
 Each of these stages can optimised and changed depending on how your organisation or teams works.
 
-1. **Embed** focuses on `infrastructure` and `bundling` approaches. You can optimise it by changing how the micro frontends are bundled and lazy loaded into the screen. You can also update how the bundle is served on the browser.
+1. **Embed** focuses on `infrastructure` and `bundling` approaches. You can optimise it by changing how the micro frontends are bundled and lazy loaded into the screen. You can also update the infrastructure used to serve the bundles into your clients.
 2. **Initialise** focuses on `memory usage` and `namespacing`. Putting a bunch of code inside the `window` space will surely consume a lot of memory. You can optimise this by changing how and when the script is embedded into the window space.
 3. **Mount** and **Unmount** focuses on the `frontend framework` of choice.
 
