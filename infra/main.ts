@@ -7,11 +7,12 @@ import * as path from 'path';
 import { Distribution, OriginAccessIdentity } from 'aws-cdk-lib/aws-cloudfront';
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
 
+const appName = 'micro-fe'; // TODO: CHANGE ME
+
 class MicroUIStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const appName = 'micro-fe'; // TODO: CHANGE ME
 
     const bucket = new Bucket(this, `${appName}-bucket`, {
       accessControl: BucketAccessControl.PRIVATE
@@ -35,4 +36,4 @@ class MicroUIStack extends cdk.Stack {
 }
 
 const app = new cdk.App();
-new MicroUIStack(app, 'pp-account-micro-ui-poc', {});
+new MicroUIStack(app, appName, {});
