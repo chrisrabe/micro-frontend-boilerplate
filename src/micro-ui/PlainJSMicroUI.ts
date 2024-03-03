@@ -8,7 +8,7 @@ interface PlainJSProps<T> {
 }
 
 class PlainJSMicroUI<T> extends MicroUI {
-  private _elem: HTMLElement | null = null;
+  private _elems: HTMLElement[] = [];
   private readonly _component: PlainJSComponent<T>;
   
   constructor({ component, componentId }: PlainJSProps<T>) {
@@ -18,16 +18,16 @@ class PlainJSMicroUI<T> extends MicroUI {
 
   mount(args: MountArgs): void {
     const { elem, props } = args;
-    this._elem = elem;
+    this._elems.push(elem);
     elem.appendChild(this._component(props));
   }
 
   unmount(): void {
-    if(this._elem) {
-      let child = this._elem.lastElementChild;
+    for (const elem of this._elems) {
+      let child = elem.lastElementChild;
       while(child) {
-        this._elem.removeChild(child);
-        child = this._elem.lastElementChild;
+        elem.removeChild(child);
+        child = elem.lastElementChild;
       }
     }
   }

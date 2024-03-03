@@ -9,7 +9,7 @@ interface Props<T> {
 }
 
 class ReactMicroUI<T> extends MicroUI {
-  private _elem: HTMLElement | null = null;
+  private _elems: HTMLElement[] = [];
   private readonly _component: ComponentType<T>;
 
   constructor({ component, componentId }: Props<T>) {
@@ -19,16 +19,17 @@ class ReactMicroUI<T> extends MicroUI {
 
   mount(args: MountArgs) {
     const { elem, props = {} } = args;
-    this._elem = elem;
+    this._elems.push(elem);
     const Component = this._component;
-    const root = createRoot(this._elem);
+    const root = createRoot(elem);
     root.render(<Component {...props} />);
   }
 
   unmount(): void {
-    if(this._elem) {
-      unmountComponentAtNode(this._elem);
+    for(const elem of this._elems) {
+      unmountComponentAtNode(elem);
     }
+    this._elems = [];
   }
 }
 
